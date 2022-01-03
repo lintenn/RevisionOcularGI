@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'RevisionOcularApp', # Registramos nuestra propia aplicación en el conjunto de aplicaciones instaladas del proyecto
 ]
 
 MIDDLEWARE = [
