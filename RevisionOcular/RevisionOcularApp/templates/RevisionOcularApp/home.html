@@ -1,34 +1,75 @@
-{% extends "RevisionOcularApp/base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+    <head>
+        <title>Revisi&oacute;n Ocular</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/RevisionApp.css' %}"> 
+          
+    </head>
 
-{% block content %}
-
+    <body>
+        
         <h2>Revisi&oacute;n Ocular</h2>
-        <table class="editorDemoTable">
+
+        <div style="height:241px; overflow-y:auto;">
+        <table class="tabla" style="border-color: black;">
         <tbody>
             <tr>
-                <td><strong>NIF</strong></td>
-                <td><strong>NOMBRE</strong></td>
-                <td><strong>APELLIDOS</strong></td>
-                <td><strong>EDAD</strong></td>
+                <th><strong>NIF</strong></th>
+                <th><strong>NOMBRE</strong></th>
+                <th><strong>APELLIDOS</strong></th>
+                <th><strong>EDAD</strong></th>
             </tr>
+
+            {% for c in clientes %}
             <tr>
-                <td>11111111A</td>
-                <td>Nombre1</td>
-                <td>Apellido1</td>
-                <td>21</td>
+                <td><a title="home" href="." >{{ c.NIF }}</a></td>
+                <td><a title="home" href="." >{{ c.NOMBRE }}</a></td>
+                <td><a title="home" href="." >{{ c.APELLIDO }}</a></td>
+                <td><a title="home" href="." >{{ c.EDAD }}</a></td>
+                
             </tr>
-            <tr>
-                <td>22222222A</td>
-                <td>Nombre2</td>
-                <td>Apellido2</td>
-                <td>22</td>
-            </tr>
+            {% endfor %}
+            
         </tbody>
         </table>
-        <p>NIF:&nbsp;</p>
-        <p>Nombre:&nbsp;</p>
-        <p>Apellidos:&nbsp;</p>
-        <p>Edad:&nbsp;</p>
+        </div>
+
+        <br> <br>
+        <label for="nif">NIF:&nbsp;</lNif>
+        <input type="text" id="nif" name="nif" size="10">
+        <br> <br>
+        <label for="nombre">Nombre:&nbsp;</lNombre>
+        <input type="text" id="nombre" name="nombre" size="10">
+        <br> <br>
+        <label for="apellidos">Apellidos:&nbsp;</lApellidos>
+        <input type="text" id="apellidos" name="apellidos" size="10">
+        <br> <br>
+        <label for="edad">Edad:&nbsp;</lEdad>
+            <select name="edad">
+                {% for n in range %}
+                <option value="1">{{ n }}</option> 
+                {% endfor %}
+             </select>
+
         <p><a title="revision" href="revision" target="_blank" rel="noopener">Revisiones</a></p>
 
-{% endblock %}
+        <div title="form">
+        <button> A&ntilde;adir </button>
+        </label>&ensp;</label>
+        </label>&ensp;</label>
+        <button> Actualizar </button>
+        </label>&ensp;</label>
+        </label>&ensp;</label>
+        <button> Borrar </button>
+        </label>&ensp;</label>
+        </label>&ensp;</label>
+        <button> Limpiar </button>
+        </label>&ensp;</label>
+        </label>&ensp;</label>
+        <p><a title="home" href="." >Salir</a></p>
+        </div>
+    </body>
+
+</html>
+
