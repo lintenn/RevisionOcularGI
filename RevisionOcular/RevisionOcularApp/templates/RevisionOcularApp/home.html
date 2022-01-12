@@ -38,42 +38,43 @@
 
 <br> <br>
 <label for="nif">NIF:&nbsp;
-<input type="text" id="nif" name="nif" size="10">
+    <input type="text" id="nif" name="nif" size="10">
 </label>
 
 
 <br> <br>
 <label for="nombre">Nombre:&nbsp;
-<input type="text" id="nombre" name="nombre" size="10">
+    <input type="text" id="nombre" name="nombre" size="10">
 </label>
 
 <br> <br>
 <label for="apellidos">Apellidos:&nbsp;
-<input type="text" id="apellidos" name="apellidos" size="10">
+    <input type="text" id="apellidos" name="apellidos" size="10">
 </label>
 
 <br> <br>
 <label for="edad">Edad:&nbsp;
-<select name="edad">
-    {% for n in range %}
-        <option value="1">{{ n }}</option>
-    {% endfor %}
-</select>
-&emsp;<button><a title="revision" href="revision" target="_blank" rel="noopener">Revisiones</a></button>
+    <select name="edad">
+        {% for n in range %}
+            <option value="1">{{ n }}</option>
+        {% endfor %}
+    </select>
+    &emsp;<button class="bRevision"><a class="revisionL" href="revision" target="_blank" rel="noopener">Revisiones</a>
+    </button>
 </label>
 
 <br> <br>
 
 <div title="form">
-    <button>A&ntilde;adir</button>
+    <button class="bAdd">A&ntilde;adir</button>
     <label>&ensp;&ensp;</label>
-    <button>Actualizar</button>
+    <button class="bUpd">Actualizar</button>
     <label>&ensp;&ensp;</label>
-    <button>Borrar</button>
+    <button class="bDel">Borrar</button>
     <label>&ensp;&ensp;</label>
-    <button>Limpiar</button>
+    <button class="bCln">Limpiar</button>
     <label>&ensp;&ensp;</label>
-    <button><a title="home" href=".">Salir</a></button>
+    <button class="bExit"><a title="home" href=".">Salir</a></button>
 </div>
 </body>
 
