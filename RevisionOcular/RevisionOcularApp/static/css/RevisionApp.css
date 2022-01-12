@@ -65,6 +65,7 @@ table {
     padding-top: 10px;
     padding-bottom: 10px;
     background: #808080;
+    text-align: center;
   }
   
   tr:nth-child(even) td {

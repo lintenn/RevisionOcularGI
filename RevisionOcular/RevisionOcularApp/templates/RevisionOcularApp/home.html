@@ -1,75 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-    {% load static %}
-    <head>
-        <title>Revisi&oacute;n Ocular</title>
-        <link rel="stylesheet" type="text/css" href="{% static 'css/RevisionApp.css' %}"> 
-          
-    </head>
+{% load static %}
+<head>
+    <title>Revisi&oacute;n Ocular</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/RevisionApp.css' %}">
 
-    <body>
-        
-        <h2>Revisi&oacute;n Ocular</h2>
+</head>
 
-        <div style="height:241px; overflow-y:auto;">
-        <table class="tabla" style="border-color: black;">
+<body>
+
+<h2>Revisi&oacute;n Ocular</h2>
+
+<div style="height:241px; overflow-y:auto;">
+    <table class="tabla" style="border-color: black;">
         <tbody>
-            <tr>
-                <th><strong>NIF</strong></th>
-                <th><strong>NOMBRE</strong></th>
-                <th><strong>APELLIDOS</strong></th>
-                <th><strong>EDAD</strong></th>
-            </tr>
+        <tr>
+            <th><strong>NIF</strong></th>
+            <th><strong>NOMBRE</strong></th>
+            <th><strong>APELLIDOS</strong></th>
+            <th><strong>EDAD</strong></th>
+            <th><strong>SELECCI&Oacute;N</strong></th>
+        </tr>
 
-            {% for c in clientes %}
+        {% for c in clientes %}
             <tr>
-                <td><a title="home" href="." >{{ c.NIF }}</a></td>
-                <td><a title="home" href="." >{{ c.NOMBRE }}</a></td>
-                <td><a title="home" href="." >{{ c.APELLIDO }}</a></td>
-                <td><a title="home" href="." >{{ c.EDAD }}</a></td>
-                
+                <td>{{ c.NIF }}</td>
+                <td>{{ c.NOMBRE }}</td>
+                <td>{{ c.APELLIDO }}</td>
+                <td>{{ c.EDAD }}</td>
+                <td><input type="radio" name="seleccion"></td>
             </tr>
-            {% endfor %}
-            
+        {% endfor %}
+
         </tbody>
-        </table>
-        </div>
+    </table>
+</div>
 
-        <br> <br>
-        <label for="nif">NIF:&nbsp;</lNif>
-        <input type="text" id="nif" name="nif" size="10">
-        <br> <br>
-        <label for="nombre">Nombre:&nbsp;</lNombre>
-        <input type="text" id="nombre" name="nombre" size="10">
-        <br> <br>
-        <label for="apellidos">Apellidos:&nbsp;</lApellidos>
-        <input type="text" id="apellidos" name="apellidos" size="10">
-        <br> <br>
-        <label for="edad">Edad:&nbsp;</lEdad>
-            <select name="edad">
-                {% for n in range %}
-                <option value="1">{{ n }}</option> 
-                {% endfor %}
-             </select>
+<br> <br>
+<label for="nif">NIF:&nbsp;
+<input type="text" id="nif" name="nif" size="10">
+</label>
 
-        <p><a title="revision" href="revision" target="_blank" rel="noopener">Revisiones</a></p>
 
-        <div title="form">
-        <button> A&ntilde;adir </button>
-        </label>&ensp;</label>
-        </label>&ensp;</label>
-        <button> Actualizar </button>
-        </label>&ensp;</label>
-        </label>&ensp;</label>
-        <button> Borrar </button>
-        </label>&ensp;</label>
-        </label>&ensp;</label>
-        <button> Limpiar </button>
-        </label>&ensp;</label>
-        </label>&ensp;</label>
-        <p><a title="home" href="." >Salir</a></p>
-        </div>
-    </body>
+<br> <br>
+<label for="nombre">Nombre:&nbsp;
+<input type="text" id="nombre" name="nombre" size="10">
+</label>
+
+<br> <br>
+<label for="apellidos">Apellidos:&nbsp;
+<input type="text" id="apellidos" name="apellidos" size="10">
+</label>
+
+<br> <br>
+<label for="edad">Edad:&nbsp;
+<select name="edad">
+    {% for n in range %}
+        <option value="1">{{ n }}</option>
+    {% endfor %}
+</select>
+&emsp;<button><a title="revision" href="revision" target="_blank" rel="noopener">Revisiones</a></button>
+</label>
+
+<br> <br>
+
+<div title="form">
+    <button>A&ntilde;adir</button>
+    <label>&ensp;&ensp;</label>
+    <button>Actualizar</button>
+    <label>&ensp;&ensp;</label>
+    <button>Borrar</button>
+    <label>&ensp;&ensp;</label>
+    <button>Limpiar</button>
+    <label>&ensp;&ensp;</label>
+    <button><a title="home" href=".">Salir</a></button>
+</div>
+</body>
 
 </html>
-
