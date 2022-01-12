@@ -76,8 +76,12 @@ WSGI_APPLICATION = 'RevisionOcular.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'RevisionOcular',
+        'USER': 'u325099778_root',
+        'PASSWORD': 'Revision123',
+        'HOST': 'sql168.main-hosting.eu',
+        'PORT': '3306',
     }
 }
 
