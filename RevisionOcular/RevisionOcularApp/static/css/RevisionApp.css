@@ -1,5 +1,74 @@
+
+
 body {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     
     background: linear-gradient(to right,#f2ff00,#00ff10);
 }
+
+form{
+    
+}
+
+
+table {
+    display: contents;
+    border-collapse: collapse;
+    min-width: 100%;
+    
+    grid-template-columns: 
+      minmax(150px, 1fr)
+      minmax(150px, 1.67fr)
+      minmax(150px, 1.67fr)
+      minmax(150px, 1.67fr)
+      minmax(150px, 3.33fr)
+      minmax(150px, 1.67fr)
+      minmax(150px, 3.33fr)
+      minmax(150px, 1.67fr);
+  }
+  
+  thead,
+  tbody,
+  tr {
+    display: table-row;
+    border-collapse: collapse;
+  }
+  
+  th,
+  td {
+    padding: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  th {
+    position: sticky;
+    top: 0;
+    background: #6c7ae0;
+    text-align: left;
+    font-weight: normal;
+    font-size: 1.1rem;
+    color: white;
+  }
+  
+  th:last-child {
+    border: 0;
+  }
+  
+  td {
+    display: table-cell;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: #808080;
+  }
+  
+  tr:nth-child(even) td {
+    display: table-cell;
+    background: #f8f6ff;
+  }
 
