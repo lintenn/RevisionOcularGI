@@ -7,7 +7,7 @@ def home(request):
 
     clientes = tClient.objects.all()
 
-    return render(request, "RevisionOcularApp/home.html" , {"clientes":clientes})
+    return render(request, "RevisionOcularApp/home.html" , {"clientes":clientes, "range":range(1,100)})
 
 def revision(request):
 
