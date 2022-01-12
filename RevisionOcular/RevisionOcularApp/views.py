@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse
-from RevisionOcularApp.models import tClient,tEye 
+from RevisionOcularApp.models import tClient,tEye
 
 # Create your views here.
 
