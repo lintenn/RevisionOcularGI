@@ -10,7 +10,7 @@
     <body>
         
         <h2>Revisi&oacute;n Ocular</h2>
-        <table class="editorDemoTable">
+        <table class="editorDemoTable" style="border-color: black;">
         <tbody>
             <tr>
                 <td><strong> &nbsp;NIF&nbsp;&nbsp; </strong></td>
@@ -44,7 +44,7 @@
         <p></p>
         <label for="edad">Edad:&nbsp;</lEdad>
             <select name="edad">
-                {% for n in range(1,99) %}
+                {% for n in range %}
                 <option value="1">{{ n }}</option> 
                 {% endfor %}
              </select>
