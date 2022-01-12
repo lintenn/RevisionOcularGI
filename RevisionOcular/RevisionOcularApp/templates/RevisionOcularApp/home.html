@@ -3,7 +3,7 @@
     {% load static %}
     <head>
         <title>Revisi&oacute;n Ocular</title>
-        <link rel="stylesheet" type="text/css" href="{% static 'css/calc.css' %}"> 
+        <link rel="stylesheet" type="text/css" href="{% static 'css/RevisionApp.css' %}"> 
           
     </head>
 
@@ -32,10 +32,23 @@
             
         </tbody>
         </table>
-        <p>NIF:&nbsp;</p>
-        <p>Nombre:&nbsp;</p>
-        <p>Apellidos:&nbsp;</p>
-        <p>Edad:&nbsp;</p>
+        <p></p>
+        <label for="nif">NIF:&nbsp;</lNif>
+        <input type="text" id="nif" name="nif" size="10">
+        <p></p>
+        <label for="nombre">Nombre:&nbsp;</lNombre>
+        <input type="text" id="nombre" name="nombre" size="10">
+        <p></p>
+        <label for="apellidos">Apellidos:&nbsp;</lApellidos>
+        <input type="text" id="apellidos" name="apellidos" size="10">
+        <p></p>
+        <label for="edad">Edad:&nbsp;</lEdad>
+            <select name="edad">
+                {% for n in range(1,99) %}
+                <option value="1">{{ n }}</option> 
+                {% endfor %}
+             </select>
+
         <p><a title="revision" href="revision" target="_blank" rel="noopener">Revisiones</a></p>
 
         <p>A&ntilde;adir</p>
