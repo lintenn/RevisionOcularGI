@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'RevisionOcular.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'RevisionOcular',
+        'NAME': 'u325099778_revisionOcular',
         'USER': 'u325099778_root',
         'PASSWORD': 'Revision123',
         'HOST': 'sql168.main-hosting.eu',
