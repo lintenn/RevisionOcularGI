@@ -1,66 +1,69 @@
 <html>
-
+{% load static %}
+    <head>
+        <title>Revisi&oacute;n Ocular</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/RevisionForm.css' %}">
+    </head>
     <body>
 
         <h2>11111111A;Nombre1;Apellido1;21</h2>
-        <table class="editorDemoTable" style="border-color: black;">
+        <div style="width:1000px; height:254px; overflow:auto;">
+        <table class="tabla" style="border-color: black;">
         <tbody>
             <tr>
-                <td><strong>ID</strong></td>
-                <td><strong>NIF</strong></td>
-                <td><strong>CONSULTA</strong></td>
-                <td><strong>OD_ESFERA</strong></td>
-                <td><strong>OD_CILINDRO</strong></td>
-                <td><strong>OD_ADICION</strong></td>
-                <td><strong>OD_AGUDEZA</strong></td>
-                <td><strong>OI_ESFERA</strong></td>
-                <td><strong>OI_CILINDRO</strong></td>
-                <td><strong>OI_ADICION</strong></td>
-                <td><strong>OI_AGUDEZA</strong></td>
+                <th><strong>SELECCI&Oacute;N</strong></th>
+                <th><strong>ID</strong></th>
+                <th><strong>NIF</strong></th>
+                <th><strong>CONSULTA</strong></th>
+                <th><strong>OD_ESFERA</strong></th>
+                <th><strong>OD_CILINDRO</strong></th>
+                <th><strong>OD_ADICION</strong></th>
+                <th><strong>OD_AGUDEZA</strong></th>
+                <th><strong>OI_ESFERA</strong></th>
+                <th><strong>OI_CILINDRO</strong></th>
+                <th><strong>OI_ADICION</strong></th>
+                <th><strong>OI_AGUDEZA</strong></th>
             </tr>
+            {% for r in revisiones %}
             <tr>
-                <td>1</td>
-                <td>11111111A</td>
-                <td>16/09/2018</td>
-                <td>2</td>
-                <td>-1.5</td>
-                <td>85</td>
-                <td>1</td>
-                <td>2.25</td>
-                <td>-1.75</td>
-                <td>80</td>
-                <td>1</td>
+                <td><input type="radio" name="seleccion"></td>
+                <td>{{ r.id }}</td>
+                <td>{{ r.NIF }}</td>
+                <td>{{ r.CONSULTA }}</td>
+                <td>{{ r.OD_ADICION }}</td>
+                <td>{{ r.OD_AGUDEZA }}</td>
+                <td>{{ r.OD_CILINDRO }}</td>
+                <td>{{ r.OD_ESFERA }}</td>
+                <td>{{ r.OI_ADICION }}</td>
+                <td>{{ r.OI_AGUDEZA }}</td>
+                <td>{{ r.OI_CILINDRO }}</td>
+                <td>{{ r.OI_ESFERA }}</td>
             </tr>
-            <tr>
-                <td>2</td>
-                <td>11111111A</td>
-                <td>16/09/2019</td>
-                <td>2.25</td>
-                <td>-1.5</td>
-                <td>85</td>
-                <td>1</td>
-                <td>2.5</td>
-                <td>-1.75</td>
-                <td>80</td>
-                <td>1</td>
-            </tr>
+        {% endfor %}
+           
         </tbody>
         </table>
-        <p>OD_ESFERA:&nbsp;</p>
-        <p>OD_CILINDRO:&nbsp;</p>
-        <p>OD_ADICION:&nbsp;</p>
-        <p>OD_AGUDEZA:&nbsp;</p>
-        <p>OI_ESFERA:&nbsp;</p>
-        <p>OI_CILINDRO:&nbsp;</p>
-        <p>OI_ADICION:&nbsp;</p>
-        <p>OI_AGUDEZA:&nbsp;</p>
-        <p>16/09/2019</p>
+        </div>
 
-        <p>A&ntilde;adir</p>
-        <p>Actualizar</p>
-        <p>Borrar</p>
-        <p>Limpiar</p>
-        <p><a title="home" href="." >Salir</a></p>
+
+        <p>OD_ESFERA:&nbsp;  <input type="oesfera" id="oesfera" name="oesfera" size="10">  &emsp;&emsp;&emsp;&emsp;OI_ESFERA:&nbsp; <input type="iesfera" id="iesfera" name="iesfera" size="10"></p>
+        <p>OD_CILINDRO:&nbsp;  <input type="ocilindro" id="ocilindro" name="ocilindro" size="10">  &emsp;&emsp;&emsp;&emsp;OI_CILINDRO:&nbsp; <input type="icilindro" id="icilindro" name="icilindro" size="10"></p>
+        <p>OD_ADICION:&nbsp;  <input type="oadicion" id="oadicion" name="oadicion" size="10">  &emsp;&emsp;&emsp;&emsp;OI_ADICION:&nbsp; <input type="iadicion" id="iadicion" name="iadicion" size="10"></p>
+        <p>OD_AGUDEZA:&nbsp;  <input type="oagudeza" id="oagudeza" name="oagudeza" size="10">  &emsp;&emsp;&emsp;&emsp;OI_AGUDEZA:&nbsp; <input type="iagudeza" id="iagudeza" name="iagudeza" size="10"></p>
+    
+        <br><br>
+
+        <div title="form">
+            <button class="bAdd">A&ntilde;adir</button>
+            <label>&ensp;&ensp;</label>
+            <button class="bUpd">Actualizar</button>
+            <label>&ensp;&ensp;</label>
+            <button class="bDel">Borrar</button>
+            <label>&ensp;&ensp;</label>
+            <button class="bCln">Limpiar</button>
+            <label>&ensp;&ensp;</label>
+            <button class="bExit"><a title="home" href=".">Salir</a></button>
+        </div>
 
     </body>
 
