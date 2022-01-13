@@ -8,20 +8,9 @@ body {
 }
 
 .bRevision {
-    min-width: 130px;
-    height: 40px;
-    color: #fff;
-    padding: 5px 10px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    display: inline-block;
-    outline: none;
-    border-radius: 5px;
-    border: none;
-    background: #3d348b;
-    box-shadow: 0 5px #2c0b8e;
+    background: transparent;
+    border: none !important;
+    font-size:0;
 }
 
 .revisionL {
