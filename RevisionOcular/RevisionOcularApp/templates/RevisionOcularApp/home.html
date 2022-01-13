@@ -4,31 +4,30 @@
 <head>
     <title>Revisi&oacute;n Ocular</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/RevisionApp.css' %}">
-
 </head>
 
 <body>
 
-<h2>Revisi&oacute;n Ocular</h2>
+<h1>Revisi&oacute;n Ocular</h1>
 
 <div style="height:248px; overflow-y:auto;">
     <table class="tabla" style="border-color: black;">
         <tbody>
         <tr>
+            <th><strong>SELECCI&Oacute;N</strong></th>
             <th><strong>NIF</strong></th>
             <th><strong>NOMBRE</strong></th>
             <th><strong>APELLIDOS</strong></th>
             <th><strong>EDAD</strong></th>
-            <th><strong>SELECCI&Oacute;N</strong></th>
         </tr>
 
         {% for c in clientes %}
             <tr>
-                <td>{{ c.NIF }}</td>
+                <td><input type="radio" name="seleccion"></td>
+                <td class="lnif">{{ c.NIF }}</td>
                 <td>{{ c.NOMBRE }}</td>
                 <td>{{ c.APELLIDO }}</td>
                 <td>{{ c.EDAD }}</td>
-                <td><input type="radio" name="seleccion"></td>
             </tr>
         {% endfor %}
 
@@ -37,7 +36,7 @@
 </div>
 
 <br> <br>
-<label for="nif">NIF:&nbsp;
+<label class="tnif">NIF:&nbsp;
     <input type="text" id="nif" name="nif" size="10">
 </label>
 
@@ -59,8 +58,9 @@
             <option value="1">{{ n }}</option>
         {% endfor %}
     </select>
-    &emsp;<button class="bRevision"><a class="revisionL" href="revision" target="_blank" rel="noopener">Revisiones</a>
-    </button>
+    &emsp;
+    <a class="revisionL" href="revision" target="_blank" rel="noopener"> <button class="bRevision">Revisiones
+    </button></a>
 </label>
 
 <br> <br>

@@ -11,6 +11,8 @@ def home(request):
 
 def revision(request):
 
-    return render(request, "RevisionOcularApp/revision.html")
+    revisiones = tEye.objects.all()
+
+    return render(request, "RevisionOcularApp/revision.html", {"revisiones":revisiones})
 
 
