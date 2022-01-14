@@ -42,6 +42,7 @@
 </div>
 
 <br> <br>
+<form method="POST"> {% csrf_token %}
 <label class="tnif">NIF:&nbsp;
     <input type="text" id="nif" name="nif" size="10">
 </label>
@@ -60,27 +61,28 @@
 <label for="edad">Edad:&nbsp;
     <select name="edad">
         {% for n in range %}
-            <option value="1">{{ n }}</option>
+            <option value="{{ n }}">{{ n }}</option>
         {% endfor %}
     </select>
     &emsp;
-    <a class="revisionL" href="."> <button class="bRevision">Revisiones
-    </button></a>
+    <a class="revisionL" href="."> <input type="button" class="bRevision" value="Revisiones"></a>
 </label>
 
 <br> <br>
 
 <div title="form">
-    <button class="bAdd">A&ntilde;adir</button>
+    <input type="submit" name="bAdd" class="bAdd" value="Añadir">
     <label>&ensp;&ensp;</label>
-    <button class="bUpd">Actualizar</button>
+    <input type="submit" name="bUpd" class="bUpd" value="Actualizar">
     <label>&ensp;&ensp;</label>
-    <button class="bDel">Borrar</button>
+    <input type="submit" name="bDel" class="bDel" value="Borrar">
     <label>&ensp;&ensp;</label>
-    <a title="home" href="."><button class="bCln">Limpiar</button></a>
+    <a href="."><button class="bCln">Limpiar</button></a>
     <label>&ensp;&ensp;</label>
-    <a title="home" href="."><button class="bExit">Salir</button></a>
+    <a href="."><button class="bExit">Salir</button></a>
 </div>
+</form>
+
 </body>
 
 </html>
