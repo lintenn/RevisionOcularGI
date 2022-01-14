@@ -4,8 +4,29 @@ body {
     align-items: center;
     flex-direction: column;
 
-    background: linear-gradient(to right, #f2ff00, #00ff10);
+    background: linear-gradient(to right, #eaff00, #000000);
 }
+
+.form{
+    display: contents;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+*::-webkit-scrollbar {
+    width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+    background: rgb(199, 183, 0);
+}
+  
+*::-webkit-scrollbar-thumb {
+    background-color: blue;
+    border-radius: 20px;
+    border: 3px solid rgb(199, 183, 0);
+  }
 
 .bRevision {
     min-width: 130px;
@@ -18,7 +39,7 @@ body {
     position: relative;
     display: inline-block;
     outline: none;
-    border-radius: 5px;
+    border-radius: 20px;
     border: none;
     background: #3d348b;
     box-shadow: 0 5px #2c0b8e;
@@ -112,19 +133,19 @@ tr:hover td {
   }
 
   .animatedButtom {
-    color: rgba(255, 255, 255, 0.9) !important;
+    color: rgba(0, 0, 0, 0.9) !important;
     font-size: 20px;
     font-weight: 500;
     padding: 0.5em 1.2em;
-    background: #318aac;
+    background: #eaff00;
     border: 2px solid;
     border-radius: 20px;
-    border-color: #318aac;
+    border-color: #eaff00;
     position: relative;
   }
   .animatedButtom:hover {
-    color: rgba(255, 255, 255, 1) !important;
-    box-shadow: 0 4px 16px rgba(49, 138, 172, 1);
+    color: rgb(0, 0, 0) !important;
+    box-shadow: 0 4px 16px #eaff00;
     transition: all 0.2s ease;
   }
 
