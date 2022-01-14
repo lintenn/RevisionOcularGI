@@ -6,6 +6,17 @@ from RevisionOcularApp.models import tClient,tEye
 
 def home(request):
 
+    if request.method == "POST":
+        nif = request.POST.get("nif")
+        nombre = request.POST.get("nombre")
+        apellidos = request.POST.get("apellidos")
+        edad = request.POST.get("edad")
+        if request.POST.get("bAdd") is not None and nif != "":
+            c = tClient(NIF=nif, NOMBRE=nombre, APELLIDO=apellidos, EDAD=edad)
+            c.save()
+
+        return redirect("http://127.0.0.1:8000/")
+
     clientes = tClient.objects.all()
 
     return render(request, "RevisionOcularApp/home.html" , {"clientes":clientes, "range":range(1,100)})
@@ -23,11 +34,19 @@ def clientselect(request, NIF):
             c.save()
 
         elif request.POST.get("bUpd") is not None:
-            c = tClient.objects.get(NIF=NIF)
-            c.NIF = nif
-            c.NOMBRE = nombre
-            c.APELLIDO = apellidos
-            c.EDAD = edad
+            c = tClient.objects.filter(NIF=NIF).first()
+            if c.NIF != nif:
+                c_new = tClient(NIF=nif, NOMBRE=nombre, APELLIDO=apellidos, EDAD=edad)
+                c.delete()
+                c_new.save()
+                return redirect("http://127.0.0.1:8000/")
+
+            if c.NOMBRE != nombre:
+                c.NOMBRE = nombre    
+            if c.APELLIDO != apellidos:
+                c.APELLIDO = apellidos
+            if c.EDAD != edad:
+                c.EDAD = edad
             c.save()
 
         elif request.POST.get("bDel") is not None:
