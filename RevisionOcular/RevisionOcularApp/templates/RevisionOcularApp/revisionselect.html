@@ -30,14 +30,14 @@
                 <td>{{ r.id }}</td>
                 <td>{{ r.NIF }}</td>
                 <td>{{ r.CONSULTA }}</td>
+                <td>{{ r.OD_ESFERA }}</td>
+                <td>{{ r.OD_CILINDRO }}</td>
                 <td>{{ r.OD_ADICION }}</td>
                 <td>{{ r.OD_AGUDEZA }}</td>
-                <td>{{ r.OD_CILINDRO }}</td>
-                <td>{{ r.OD_ESFERA }}</td>
+                <td>{{ r.OI_ESFERA }}</td>
+                <td>{{ r.OI_CILINDRO }}</td>
                 <td>{{ r.OI_ADICION }}</td>
                 <td>{{ r.OI_AGUDEZA }}</td>
-                <td>{{ r.OI_CILINDRO }}</td>
-                <td>{{ r.OI_ESFERA }}</td>
             </tr>
         {% endfor %}
            
@@ -45,7 +45,7 @@
         </table>
         </div>
 
-
+        <form method="POST"> {% csrf_token %}
         <p>OD_ESFERA:&nbsp;  <input type="oesfera" id="oesfera" name="oesfera" size="10" value="{{ revision.OD_ESFERA }}">  &emsp;&emsp;&emsp;&emsp;OI_ESFERA:&nbsp; <input type="iesfera" id="iesfera" name="iesfera" size="10" value="{{ revision.OI_ESFERA }}"></p>
         <p>OD_CILINDRO:&nbsp;  <input type="ocilindro" id="ocilindro" name="ocilindro" size="10" value="{{ revision.OD_CILINDRO }}">  &emsp;&emsp;&emsp;&emsp;OI_CILINDRO:&nbsp; <input type="icilindro" id="icilindro" name="icilindro" size="10" value="{{ revision.OI_CILINDRO }}"></p>
         <p>OD_ADICION:&nbsp;  <input type="oadicion" id="oadicion" name="oadicion" size="10" value="{{ revision.OD_ADICION }}">  &emsp;&emsp;&emsp;&emsp;OI_ADICION:&nbsp; <input type="iadicion" id="iadicion" name="iadicion" size="10" value="{{ revision.OI_ADICION }}"></p>
@@ -56,16 +56,17 @@
         <br><br>
 
         <div title="form">
-            <button class="bAdd">A&ntilde;adir</button>
+            <input type="submit" name="bAdd" class="bAdd" value="Añadir">
             <label>&ensp;&ensp;</label>
-            <button class="bUpd">Actualizar</button>
+            <input type="submit" name="bUpd" class="bUpd" value="Actualizar">
             <label>&ensp;&ensp;</label>
-            <button class="bDel">Borrar</button>
+            <input type="submit" name="bDel" class="bDel" value="Borrar">
             <label>&ensp;&ensp;</label>
-            <a title="home" href=".."><button class="bCln">Limpiar</button></a>
+            <a title="home" href=".."><input type="button" class="bCln" value="Limpiar"></a>
             <label>&ensp;&ensp;</label>
-            <a title="home" href="http://127.0.0.1:8000/"><button class="bExit">Salir</button></a>
+            <a title="home" href="http://127.0.0.1:8000/"><input type="button" class="bExit" value="Salir"></a>
         </div>
+        </form>
 
     </body>
 
