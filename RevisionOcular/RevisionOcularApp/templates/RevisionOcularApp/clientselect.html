@@ -10,7 +10,7 @@
 
 <h1>Revisi&oacute;n Ocular</h1>
 
-<div style="height:260px; overflow-y:auto;">
+<div style="height:245px; overflow-y:auto;">
     
     <table class="tabla" style="border-color: black;">
         <tbody>
@@ -42,18 +42,18 @@
 </div>
 
 <br> <br>
-<form method="POST"> {% csrf_token %}
+<form method="POST" class="form"> {% csrf_token %}
 <label class="tnif">NIF:&nbsp;
     <input type="text" id="nif" name="nif" size="10" value="{{ cliente.NIF }}">
 </label>
 
 
-<br> <br>
+<br>
 <label for="nombre">Nombre:&nbsp;
     <input type="text" id="nombre" name="nombre" size="10" value="{{ cliente.NOMBRE }}">
 </label>
 
-<br> <br>
+<br>
 <label for="apellidos">Apellidos:&nbsp;
     <input type="text" id="apellidos" name="apellidos" size="10" value="{{ cliente.APELLIDO }}">
 </label>
