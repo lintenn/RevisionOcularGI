@@ -14,7 +14,7 @@ class tClient (models.Model):
 
 class tEye (models.Model):
     NIF=models.ForeignKey(tClient, on_delete=models.CASCADE)
-    CONSULTA=models.DateTimeField(default=timezone.now)
+    CONSULTA=models.DateField(default=timezone.now)
     OD_ESFERA=models.DecimalField(max_digits=30,decimal_places=2, default=0)
     OD_CILINDRO=models.DecimalField(max_digits=30,decimal_places=2, default=0)
     OD_ADICION=models.DecimalField(max_digits=30,decimal_places=2, default=0)
