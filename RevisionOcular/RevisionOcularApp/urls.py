@@ -5,5 +5,7 @@ from RevisionOcularApp import views
 
 urlpatterns = [
     path('', views.home, name="Home"),
-    path('revision', views.revision, name="Revision"),
+    path('<NIF>/', views.clientselect, name="clientselect"),
+    path('<NIF>/revision/', views.revision, name="Revision"),
+    path('<NIF>/revision/<int:id>/', views.revisionselect, name="revisionselect")
 ]
