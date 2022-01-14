@@ -22,6 +22,7 @@ body {
     border: none;
     background: #3d348b;
     box-shadow: 0 5px #2c0b8e;
+    
 }
 
 .revisionL {
@@ -92,3 +93,14 @@ tr:hover td {
     -webkit-transition: all 0.4s linear;
     color: white;
 }
+
+/*
+.bInvisible {
+    display: flex;
+    background: transparent;
+    border: 10px !important;
+    font-size:0;
+    min-width: 70px;
+    height: 10px;
+}
+*/

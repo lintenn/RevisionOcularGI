@@ -9,10 +9,29 @@ def home(request):
 
     return render(request, "RevisionOcularApp/home.html" , {"clientes":clientes, "range":range(1,100)})
 
-def revision(request):
+def clientselect(request, NIF):
 
-    revisiones = tEye.objects.all()
+    clientes = tClient.objects.all()
 
-    return render(request, "RevisionOcularApp/revision.html", {"revisiones":revisiones})
+    cliente = tClient.objects.get(NIF = NIF)
 
+    return render(request, "RevisionOcularApp/clientselect.html", {"clientes":clientes, "range":range(1,100), "cliente":cliente})
+
+def revision(request, NIF):
+
+    revisiones = tEye.objects.filter(NIF = NIF)
+
+    cliente = tClient.objects.get(NIF = NIF)
+
+    return render(request, "RevisionOcularApp/revision.html", {"revisiones":revisiones, "cliente":cliente})
+
+def revisionselect(request, NIF, id):
+
+    revisiones = tEye.objects.filter(NIF = NIF)
+
+    revision = tEye.objects.get(id = id)
+
+    cliente = tClient.objects.get(NIF = NIF)
+
+    return render(request, "RevisionOcularApp/revisionselect.html", {"revisiones":revisiones, "revision":revision, "cliente":cliente})
 
