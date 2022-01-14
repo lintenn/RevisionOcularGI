@@ -94,13 +94,37 @@ tr:hover td {
     color: white;
 }
 
-/*
-.bInvisible {
-    display: flex;
-    background: transparent;
-    border: 10px !important;
-    font-size:0;
-    min-width: 70px;
-    height: 10px;
-}
-*/
+.botones {
+    width: 100%;
+    text-align: center;
+  }
+  
+  #separar {
+    padding: 3%;
+    display: inline-block;
+  }
+  
+  .titulo {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    text-decoration: underline;
+    color: #333333;
+  }
+
+  .animatedButtom {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 0.5em 1.2em;
+    background: #318aac;
+    border: 2px solid;
+    border-radius: 20px;
+    border-color: #318aac;
+    position: relative;
+  }
+  .animatedButtom:hover {
+    color: rgba(255, 255, 255, 1) !important;
+    box-shadow: 0 4px 16px rgba(49, 138, 172, 1);
+    transition: all 0.2s ease;
+  }
+
