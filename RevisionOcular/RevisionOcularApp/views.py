@@ -36,7 +36,7 @@ def clientselect(request, NIF):
 
     clientes = tClient.objects.all()
 
-    cliente = tClient.objects.get(NIF = NIF)
+    cliente = tClient.objects.filter(NIF = NIF).first()
 
     return render(request, "RevisionOcularApp/clientselect.html", {"clientes":clientes, "range":range(1,100), "cliente":cliente})
 
