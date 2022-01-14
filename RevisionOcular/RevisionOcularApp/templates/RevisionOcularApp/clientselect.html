@@ -62,7 +62,7 @@
 <label for="edad">Edad:&nbsp;
     <select name="edad">
         {% for n in range %}
-            <option value="1" {% if n == cliente.EDAD %} selected {% endif %} >{{ n }}</option>
+            <option value="{{ n }}" {% if n == cliente.EDAD %} selected {% endif %} >{{ n }}</option>
         {% endfor %}
     </select>
     &emsp;
