@@ -30,14 +30,14 @@
                 <td>{{ r.id }}</td>
                 <td>{{ r.NIF }}</td>
                 <td>{{ r.CONSULTA }}</td>
+                <td>{{ r.OD_ESFERA }}</td>
+                <td>{{ r.OD_CILINDRO }}</td>
                 <td>{{ r.OD_ADICION }}</td>
                 <td>{{ r.OD_AGUDEZA }}</td>
-                <td>{{ r.OD_CILINDRO }}</td>
-                <td>{{ r.OD_ESFERA }}</td>
+                <td>{{ r.OI_ESFERA }}</td>
+                <td>{{ r.OI_CILINDRO }}</td>
                 <td>{{ r.OI_ADICION }}</td>
                 <td>{{ r.OI_AGUDEZA }}</td>
-                <td>{{ r.OI_CILINDRO }}</td>
-                <td>{{ r.OI_ESFERA }}</td>
             </tr>
         {% endfor %}
            
@@ -56,11 +56,11 @@
         <br><br>
 
         <div title="form">
-            <button class="bAdd">A&ntilde;adir</button>
+            <input type="submit" name="bAdd" class="bAdd" value="Añadir">
             <label>&ensp;&ensp;</label>
-            <button class="bUpd">Actualizar</button>
+            <input type="submit" name="bUpd" class="bUpd" value="Actualizar">
             <label>&ensp;&ensp;</label>
-            <button class="bDel">Borrar</button>
+            <input type="submit" name="bDel" class="bDel" value="Borrar">
             <label>&ensp;&ensp;</label>
             <a title="home" href="."><input type="button" class="bCln" value="Limpiar"></a>
             <label>&ensp;&ensp;</label>
