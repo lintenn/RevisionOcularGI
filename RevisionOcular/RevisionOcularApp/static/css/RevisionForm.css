@@ -4,10 +4,34 @@ body {
     align-items: center;
     flex-direction: column;
 
-    background: linear-gradient(to right, #f2ff00, #00ff10);
+    background: linear-gradient(to right, #eaff00, #000000);
 }
 
-.tabla {
+
+.form{
+    display: contents;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+*::-webkit-scrollbar {
+    width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+    background: transparent;
+}
+  
+*::-webkit-scrollbar-thumb {
+    background-color: black;
+    border-radius: 20px;
+    border: 3px solid #eaff00;
+  }
+
+
+
+  .tabla {
     display: contents;
     border-collapse: collapse;
     min-width: 100%;
@@ -41,11 +65,11 @@ td {
 th {
     position: sticky;
     top: 0;
-    background: #6c7ae0;
+    background: #eaff00;
     text-align: center;
     font-weight: normal;
     font-size: 1.1rem;
-    color: white;
+    color: black;
 }
 
 th:last-child {
@@ -56,17 +80,47 @@ td {
     display: table-cell;
     padding-top: 10px;
     padding-bottom: 10px;
-    background: #808080;
+    background: #f8f6ff;
     text-align: center;
 }
 
-tr:nth-child(even) td {
-    display: table-cell;
-    background: #f8f6ff;
+tr:hover td {
+    background-color: #eaff00;
+    -webkit-transition: all 0.4s linear;
+    color: black;
 }
 
-tr:hover td {
-    background-color: #5b80b2;
-    -webkit-transition: all 0.4s linear;
-    color: white;
-}
+.botones {
+    width: 100%;
+    text-align: center;
+  }
+  
+  #separar {
+    padding: 3%;
+    display: inline-block;
+  }
+  
+  .titulo {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    text-decoration: underline;
+    color: #333333;
+  }
+
+  .animatedButtom {
+    color: rgba(0, 0, 0, 0.9) !important;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 0.5em 1.2em;
+    background: #eaff00;
+    border: 2px solid;
+    border-radius: 20px;
+    border-color: #eaff00;
+    position: relative;
+  }
+  .animatedButtom:hover {
+    color: rgb(0, 0, 0) !important;
+    box-shadow: 0 4px 16px #eaff00;
+    transition: all 0.2s ease;
+  }
+

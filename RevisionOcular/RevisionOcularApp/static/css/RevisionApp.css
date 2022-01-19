@@ -19,13 +19,13 @@ body {
 }
 
 *::-webkit-scrollbar-track {
-    background: rgb(199, 183, 0);
+    background: transparent;
 }
   
 *::-webkit-scrollbar-thumb {
-    background-color: blue;
+    background-color: black;
     border-radius: 20px;
-    border: 3px solid rgb(199, 183, 0);
+    border: 3px solid #eaff00;
   }
 
 .bRevision {
@@ -85,11 +85,11 @@ td {
 th {
     position: sticky;
     top: 0;
-    background: #6c7ae0;
+    background: #eaff00;
     text-align: center;
     font-weight: normal;
     font-size: 1.1rem;
-    color: white;
+    color: black;
 }
 
 th:last-child {
@@ -100,19 +100,14 @@ td {
     display: table-cell;
     padding-top: 10px;
     padding-bottom: 10px;
-    background: #808080;
+    background: #f8f6ff;
     text-align: center;
 }
 
-tr:nth-child(even) td {
-    display: table-cell;
-    background: #f8f6ff;
-}
-
 tr:hover td {
-    background-color: #5b80b2;
+    background-color: #eaff00;
     -webkit-transition: all 0.4s linear;
-    color: white;
+    color: black;
 }
 
 .botones {
