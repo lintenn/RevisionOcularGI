@@ -46,26 +46,28 @@
         </div>
 
         <form method="POST"> {% csrf_token %}
-        <p>OD_ESFERA:&nbsp;  <input type="oesfera" id="oesfera" name="oesfera" size="10" value="{{ revision.OD_ESFERA }}">  &emsp;&emsp;&emsp;&emsp;OI_ESFERA:&nbsp; <input type="iesfera" id="iesfera" name="iesfera" size="10" value="{{ revision.OI_ESFERA }}"></p>
-        <p>OD_CILINDRO:&nbsp;  <input type="ocilindro" id="ocilindro" name="ocilindro" size="10" value="{{ revision.OD_CILINDRO }}">  &emsp;&emsp;&emsp;&emsp;OI_CILINDRO:&nbsp; <input type="icilindro" id="icilindro" name="icilindro" size="10" value="{{ revision.OI_CILINDRO }}"></p>
-        <p>OD_ADICION:&nbsp;  <input type="oadicion" id="oadicion" name="oadicion" size="10" value="{{ revision.OD_ADICION }}">  &emsp;&emsp;&emsp;&emsp;OI_ADICION:&nbsp; <input type="iadicion" id="iadicion" name="iadicion" size="10" value="{{ revision.OI_ADICION }}"></p>
-        <p>OD_AGUDEZA:&nbsp;  <input type="oagudeza" id="oagudeza" name="oagudeza" size="10" value="{{ revision.OD_AGUDEZA }}">  &emsp;&emsp;&emsp;&emsp;OI_AGUDEZA:&nbsp; <input type="iagudeza" id="iagudeza" name="iagudeza" size="10" value="{{ revision.OI_AGUDEZA }}"></p>
+        <p><strong>OD_ESFERA:</strong>&nbsp;  <input type="oesfera" id="oesfera" name="oesfera" size="10" value="{{ revision.OD_ESFERA }}">  &emsp;&emsp;&emsp;&emsp;<strong>OI_ESFERA:</strong>&nbsp; <input type="iesfera" id="iesfera" name="iesfera" size="10" value="{{ revision.OI_ESFERA }}"></p>
+        <p><strong>OD_CILINDRO:</strong>&nbsp;  <input type="ocilindro" id="ocilindro" name="ocilindro" size="10" value="{{ revision.OD_CILINDRO }}">  &emsp;&emsp;&emsp;&emsp;<strong>OI_CILINDRO:</strong>&nbsp; <input type="icilindro" id="icilindro" name="icilindro" size="10" value="{{ revision.OI_CILINDRO }}"></p>
+        <p><strong>OD_ADICION:</strong>&nbsp;  <input type="oadicion" id="oadicion" name="oadicion" size="10" value="{{ revision.OD_ADICION }}">  &emsp;&emsp;&emsp;&emsp;<strong>OI_ADICION:</strong>&nbsp; <input type="iadicion" id="iadicion" name="iadicion" size="10" value="{{ revision.OI_ADICION }}"></p>
+        <p><strong>OD_AGUDEZA:</strong>&nbsp;  <input type="oagudeza" id="oagudeza" name="oagudeza" size="10" value="{{ revision.OD_AGUDEZA }}">  &emsp;&emsp;&emsp;&emsp;<strong>OI_AGUDEZA:</strong>&nbsp; <input type="iagudeza" id="iagudeza" name="iagudeza" size="10" value="{{ revision.OI_AGUDEZA }}"></p>
     
         <p>Consulta:&nbsp;  <input type="date" id="consulta" name="consulta" value="{{ revision.CONSULTA|date:'Y-m-d' }}"></p>
     
         <br><br>
 
-        <div title="form">
-            <input type="submit" name="bAdd" class="bAdd" value="Añadir">
-            <label>&ensp;&ensp;</label>
-            <input type="submit" name="bUpd" class="bUpd" value="Actualizar">
-            <label>&ensp;&ensp;</label>
-            <input type="submit" name="bDel" class="bDel" value="Borrar">
-            <label>&ensp;&ensp;</label>
-            <a title="home" href=".."><input type="button" class="bCln" value="Limpiar"></a>
-            <label>&ensp;&ensp;</label>
-            <a title="home" href="http://127.0.0.1:8000/"><input type="button" class="bExit" value="Salir"></a>
-        </div>
+        <section class=botones>
+            <div title="form">
+                <input type="submit" name="bAdd" class="animatedButtom" value="Añadir">
+                <label>&ensp;&ensp;</label>
+                <input type="submit" name="bUpd" class="animatedButtom" value="Actualizar">
+                <label>&ensp;&ensp;</label>
+                <input type="submit" name="bDel" class="animatedButtom" value="Borrar">
+                <label>&ensp;&ensp;</label>
+                <a href="."><button class="animatedButtom">Limpiar</button></a>
+                <label>&ensp;&ensp;</label>
+                <a href="."><button class="animatedButtom">Salir</button></a>
+            </div>
+        </section>
         </form>
 
     </body>
