@@ -64,20 +64,83 @@ def clientselect(request, NIF):
 
 def revision(request, NIF):
 
-    revisiones = tEye.objects.filter(NIF=NIF)
-
     cliente = tClient.objects.get(NIF=NIF)
+
+    if request.method == "POST":
+        oesfera = request.POST.get("oesfera")
+        iesfera = request.POST.get("iesfera")
+        ocilindro = request.POST.get("ocilindro")
+        icilindro = request.POST.get("icilindro")
+        oadicion = request.POST.get("oadicion")
+        iadicion = request.POST.get("iadicion")
+        oagudeza = request.POST.get("oagudeza")
+        iagudeza = request.POST.get("iagudeza")
+        consulta = request.POST.get("consulta")
+
+        if request.POST.get("bAdd") is not None:
+            r = tEye(NIF=cliente, CONSULTA=consulta, OD_ESFERA=oesfera, OD_CILINDRO=ocilindro, OD_ADICION=oadicion,
+                OD_AGUDEZA=oagudeza, OI_ESFERA=iesfera, OI_CILINDRO=icilindro, OI_ADICION=iadicion, OI_AGUDEZA=iagudeza)
+            r.save()
+
+        return redirect("http://127.0.0.1:8000/{}/revision/".format(cliente.NIF))
+
+    revisiones = tEye.objects.filter(NIF=NIF)
 
     return render(request, "RevisionOcularApp/revision.html", {"revisiones":revisiones, "cliente":cliente})
 
 
 def revisionselect(request, NIF, id):
 
+    cliente = tClient.objects.get(NIF=NIF)
+
+    if request.method == "POST":
+        oesfera = request.POST.get("oesfera")
+        iesfera = request.POST.get("iesfera")
+        ocilindro = request.POST.get("ocilindro")
+        icilindro = request.POST.get("icilindro")
+        oadicion = request.POST.get("oadicion")
+        iadicion = request.POST.get("iadicion")
+        oagudeza = request.POST.get("oagudeza")
+        iagudeza = request.POST.get("iagudeza")
+        consulta = request.POST.get("consulta")
+
+        if request.POST.get("bAdd") is not None:
+            r = tEye(NIF=cliente, CONSULTA=consulta, OD_ESFERA=oesfera, OD_CILINDRO=ocilindro, OD_ADICION=oadicion,
+                OD_AGUDEZA=oagudeza, OI_ESFERA=iesfera, OI_CILINDRO=icilindro, OI_ADICION=iadicion, OI_AGUDEZA=iagudeza)
+            r.save()
+
+        elif request.POST.get("bUpd") is not None:
+            r = tEye.objects.filter(id=id).first()
+
+            if r.CONSULTA != consulta:
+                r.CONSULTA = consulta    
+            if r.OD_ESFERA != oesfera:
+                r.OD_ESFERA = oesfera
+            if r.OD_CILINDRO != ocilindro:
+                r.OD_CILINDRO = ocilindro
+            if r.OD_ADICION != oadicion:
+                r.OD_ADICION = oadicion
+            if r.OD_AGUDEZA != oagudeza:
+                r.OD_AGUDEZA = oagudeza
+            if r.OI_ESFERA != iesfera:
+                r.OI_ESFERA = iesfera
+            if r.OI_CILINDRO != icilindro:
+                r.OI_CILINDRO = icilindro
+            if r.OI_ADICION != iadicion:
+                r.OI_ADICION = iadicion
+            if r.OI_AGUDEZA != iagudeza:
+                r.OI_AGUDEZA = iagudeza
+            r.save()
+
+        elif request.POST.get("bDel") is not None:
+            r = tEye.objects.get(id=id)
+            r.delete()
+
+        return redirect("http://127.0.0.1:8000/{}/revision/".format(cliente.NIF))
+
     revisiones = tEye.objects.filter(NIF=NIF)
 
     revision = tEye.objects.get(id=id)
-
-    cliente = tClient.objects.get(NIF=NIF)
 
     return render(request, "RevisionOcularApp/revisionselect.html", {"revisiones":revisiones, "revision":revision, "cliente":cliente})
 

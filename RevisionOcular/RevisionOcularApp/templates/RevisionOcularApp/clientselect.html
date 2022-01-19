@@ -26,7 +26,7 @@
         
             <tr>
                 
-                <td><a title="home" href="http://127.0.0.1:8000/{{ c.NIF }}/"><input type="submit"  class="bInvisible" name="bInvisible" style="border:1px solid black; background-color: transparent;" value="                "></a></td>
+                <td><a title="home" href="http://127.0.0.1:8000/{{ c.NIF }}/"><input type="submit"  class="bInvisible" name="bInvisible" style="border:1px solid black; background-color: {% if cliente == c %} black {% else %} transparent {% endif %};" value="                "></a></td>
                 <td class="lnif">{{ c.NIF }}</td>
                 <td>{{ c.NOMBRE }}</td>
                 <td>{{ c.APELLIDO }}</td>
@@ -43,23 +43,23 @@
 
 <br> <br>
 <form method="POST" class="form"> {% csrf_token %}
-<label class="tnif">NIF:&nbsp;
+<label class="tnif"><strong>NIF:</strong>&nbsp;
     <input type="text" id="nif" name="nif" size="10" value="{{ cliente.NIF }}">
 </label>
 
 
 <br>
-<label for="nombre">Nombre:&nbsp;
+<label for="nombre"><strong>Nombre:</strong>&nbsp;
     <input type="text" id="nombre" name="nombre" size="10" value="{{ cliente.NOMBRE }}">
 </label>
 
 <br>
-<label for="apellidos">Apellidos:&nbsp;
+<label for="apellidos"><strong>Apellidos:</strong>&nbsp;
     <input type="text" id="apellidos" name="apellidos" size="10" value="{{ cliente.APELLIDO }}">
 </label>
 
 <br> <br>
-<label for="edad">Edad:&nbsp;
+<label for="edad"><strong>Edad:</strong>&nbsp;
     <select name="edad">
         {% for n in range %}
             <option value="{{ n }}" {% if n == cliente.EDAD %} selected {% endif %} >{{ n }}</option>
