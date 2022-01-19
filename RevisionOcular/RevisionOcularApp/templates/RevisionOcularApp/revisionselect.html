@@ -26,7 +26,7 @@
             </tr>
             {% for r in revisiones %}
             <tr>
-                <td><a title="home" href="http://127.0.0.1:8000/{{ cliente.NIF }}/revision/{{ r.id }}/"><input type="submit"  class="bInvisible" name="bInvisible" style="border:1px solid black; background-color: transparent;" value="                "></a></td>
+                <td><a title="home" href="http://127.0.0.1:8000/{{ cliente.NIF }}/revision/{{ r.id }}/"><input type="submit"  class="bInvisible" name="bInvisible" style="border:1px solid black; background-color: {% if revision == r %} black {% else %} transparent {% endif %};" value="                "></a></td>
                 <td>{{ r.id }}</td>
                 <td>{{ r.NIF }}</td>
                 <td>{{ r.CONSULTA }}</td>
