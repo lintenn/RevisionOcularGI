@@ -41,7 +41,7 @@ def clientselect(request, NIF):
                 for r in tEye.objects.filter(NIF=c):
                     r.NIF = c_new
                     r.save()
-                    c.delete()
+                c.delete()
                 return redirect("http://127.0.0.1:8000/")
 
             if c.NOMBRE != nombre:
