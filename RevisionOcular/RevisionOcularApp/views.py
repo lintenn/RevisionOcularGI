@@ -35,7 +35,7 @@ def clientselect(request, NIF):
 
         elif request.POST.get("bUpd") is not None:
             c = tClient.objects.filter(NIF=NIF).first()
-            if c.NIF != nif:
+            if c.NIF != nif and nif != "":
                 c_new = tClient(NIF=nif, NOMBRE=nombre, APELLIDO=apellidos, EDAD=edad)
                 c_new.save()
                 for r in tEye.objects.filter(NIF=c):
@@ -81,9 +81,12 @@ def revision(request, NIF):
         consulta = request.POST.get("consulta")
 
         if request.POST.get("bAdd") is not None:
-            r = tEye(NIF=cliente, CONSULTA=consulta, OD_ESFERA=oesfera, OD_CILINDRO=ocilindro, OD_ADICION=oadicion,
-                OD_AGUDEZA=oagudeza, OI_ESFERA=iesfera, OI_CILINDRO=icilindro, OI_ADICION=iadicion, OI_AGUDEZA=iagudeza)
-            r.save()
+            try:
+                r = tEye(NIF=cliente, CONSULTA=consulta, OD_ESFERA=oesfera, OD_CILINDRO=ocilindro, OD_ADICION=oadicion,
+                    OD_AGUDEZA=oagudeza, OI_ESFERA=iesfera, OI_CILINDRO=icilindro, OI_ADICION=iadicion, OI_AGUDEZA=iagudeza)
+                r.save()
+            except Exception:
+                print("ERROR al insertar revisión.")
 
         return redirect("http://127.0.0.1:8000/{}/revision/".format(cliente.NIF))
 
@@ -108,32 +111,38 @@ def revisionselect(request, NIF, id):
         consulta = request.POST.get("consulta")
 
         if request.POST.get("bAdd") is not None:
-            r = tEye(NIF=cliente, CONSULTA=consulta, OD_ESFERA=oesfera, OD_CILINDRO=ocilindro, OD_ADICION=oadicion,
-                OD_AGUDEZA=oagudeza, OI_ESFERA=iesfera, OI_CILINDRO=icilindro, OI_ADICION=iadicion, OI_AGUDEZA=iagudeza)
-            r.save()
+            try:
+                r = tEye(NIF=cliente, CONSULTA=consulta, OD_ESFERA=oesfera, OD_CILINDRO=ocilindro, OD_ADICION=oadicion,
+                    OD_AGUDEZA=oagudeza, OI_ESFERA=iesfera, OI_CILINDRO=icilindro, OI_ADICION=iadicion, OI_AGUDEZA=iagudeza)
+                r.save()
+            except Exception:
+                print("ERROR al insertar revisión.")
 
         elif request.POST.get("bUpd") is not None:
-            r = tEye.objects.filter(id=id).first()
+            try:
+                r = tEye.objects.filter(id=id).first()
 
-            if r.CONSULTA != consulta:
-                r.CONSULTA = consulta    
-            if r.OD_ESFERA != oesfera:
-                r.OD_ESFERA = oesfera
-            if r.OD_CILINDRO != ocilindro:
-                r.OD_CILINDRO = ocilindro
-            if r.OD_ADICION != oadicion:
-                r.OD_ADICION = oadicion
-            if r.OD_AGUDEZA != oagudeza:
-                r.OD_AGUDEZA = oagudeza
-            if r.OI_ESFERA != iesfera:
-                r.OI_ESFERA = iesfera
-            if r.OI_CILINDRO != icilindro:
-                r.OI_CILINDRO = icilindro
-            if r.OI_ADICION != iadicion:
-                r.OI_ADICION = iadicion
-            if r.OI_AGUDEZA != iagudeza:
-                r.OI_AGUDEZA = iagudeza
-            r.save()
+                if r.CONSULTA != consulta:
+                    r.CONSULTA = consulta    
+                if r.OD_ESFERA != oesfera:
+                    r.OD_ESFERA = oesfera
+                if r.OD_CILINDRO != ocilindro:
+                    r.OD_CILINDRO = ocilindro
+                if r.OD_ADICION != oadicion:
+                    r.OD_ADICION = oadicion
+                if r.OD_AGUDEZA != oagudeza:
+                    r.OD_AGUDEZA = oagudeza
+                if r.OI_ESFERA != iesfera:
+                    r.OI_ESFERA = iesfera
+                if r.OI_CILINDRO != icilindro:
+                    r.OI_CILINDRO = icilindro
+                if r.OI_ADICION != iadicion:
+                    r.OI_ADICION = iadicion
+                if r.OI_AGUDEZA != iagudeza:
+                    r.OI_AGUDEZA = iagudeza
+                r.save()
+            except Exception:
+                print("ERROR al modificar revisión.")
 
         elif request.POST.get("bDel") is not None:
             r = tEye.objects.get(id=id)
