@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponse, redirect
 from RevisionOcularApp.models import tClient,tEye
-
+from django.contrib import messages
 # Create your views here.
 
 
@@ -12,8 +12,11 @@ def home(request):
         apellidos = request.POST.get("apellidos")
         edad = request.POST.get("edad")
         if request.POST.get("bAdd") is not None and nif != "":
-            c = tClient(NIF=nif, NOMBRE=nombre, APELLIDO=apellidos, EDAD=edad)
-            c.save()
+            try:
+                c = tClient(NIF=nif, NOMBRE=nombre, APELLIDO=apellidos, EDAD=edad)
+                c.save()
+            except Exception:
+                messages.error(request, 'ERROR al añadir cliente')
 
         return redirect("http://127.0.0.1:8000/")
 
@@ -29,32 +32,41 @@ def clientselect(request, NIF):
         nombre = request.POST.get("nombre")
         apellidos = request.POST.get("apellidos")
         edad = request.POST.get("edad")
-        if request.POST.get("bAdd") is not None:
-            c = tClient(NIF=nif, NOMBRE=nombre, APELLIDO=apellidos, EDAD=edad)
-            c.save()
+        if request.POST.get("bAdd") is not None and nif != "":
+            try:
+                c = tClient(NIF=nif, NOMBRE=nombre, APELLIDO=apellidos, EDAD=edad)
+                c.save()
+            except Exception:
+                messages.error(request, 'ERROR al añadir cliente')
 
         elif request.POST.get("bUpd") is not None:
-            c = tClient.objects.filter(NIF=NIF).first()
-            if c.NIF != nif and nif != "":
-                c_new = tClient(NIF=nif, NOMBRE=nombre, APELLIDO=apellidos, EDAD=edad)
-                c_new.save()
-                for r in tEye.objects.filter(NIF=c):
-                    r.NIF = c_new
-                    r.save()
-                c.delete()
-                return redirect("http://127.0.0.1:8000/")
+            try:
+                c = tClient.objects.filter(NIF=NIF).first()
+                if c.NIF != nif and nif != "":
+                    c_new = tClient(NIF=nif, NOMBRE=nombre, APELLIDO=apellidos, EDAD=edad)
+                    c_new.save()
+                    for r in tEye.objects.filter(NIF=c):
+                        r.NIF = c_new
+                        r.save()
+                    c.delete()
+                    return redirect("http://127.0.0.1:8000/")
 
-            if c.NOMBRE != nombre:
-                c.NOMBRE = nombre    
-            if c.APELLIDO != apellidos:
-                c.APELLIDO = apellidos
-            if c.EDAD != edad:
-                c.EDAD = edad
-            c.save()
+                if c.NOMBRE != nombre:
+                    c.NOMBRE = nombre    
+                if c.APELLIDO != apellidos:
+                    c.APELLIDO = apellidos
+                if c.EDAD != edad:
+                    c.EDAD = edad
+                c.save()
+            except Exception:
+                messages.error(request, 'ERROR al modificar cliente')
 
         elif request.POST.get("bDel") is not None:
-            c = tClient.objects.get(NIF=nif)
-            c.delete()
+            try:
+                c = tClient.objects.get(NIF=nif)
+                c.delete()
+            except Exception:
+                messages.error(request, 'ERROR al borrar cliente')
 
         return redirect("http://127.0.0.1:8000/")
 
@@ -86,7 +98,7 @@ def revision(request, NIF):
                     OD_AGUDEZA=oagudeza, OI_ESFERA=iesfera, OI_CILINDRO=icilindro, OI_ADICION=iadicion, OI_AGUDEZA=iagudeza)
                 r.save()
             except Exception:
-                print("ERROR al insertar revisión.")
+                messages.error(request, 'ERROR al añadir revisión')
 
         return redirect("http://127.0.0.1:8000/{}/revision/".format(cliente.NIF))
 
@@ -116,7 +128,7 @@ def revisionselect(request, NIF, id):
                     OD_AGUDEZA=oagudeza, OI_ESFERA=iesfera, OI_CILINDRO=icilindro, OI_ADICION=iadicion, OI_AGUDEZA=iagudeza)
                 r.save()
             except Exception:
-                print("ERROR al insertar revisión.")
+                messages.error(request, 'ERROR al añadir revisión')
 
         elif request.POST.get("bUpd") is not None:
             try:
@@ -142,11 +154,14 @@ def revisionselect(request, NIF, id):
                     r.OI_AGUDEZA = iagudeza
                 r.save()
             except Exception:
-                print("ERROR al modificar revisión.")
+                messages.error(request, 'ERROR al modificar revisión')
 
         elif request.POST.get("bDel") is not None:
-            r = tEye.objects.get(id=id)
-            r.delete()
+            try:
+                r = tEye.objects.get(id=id)
+                r.delete()
+            except Exception:
+                messages.error(request, 'ERROR al borrar revisión')
 
         return redirect("http://127.0.0.1:8000/{}/revision/".format(cliente.NIF))
 
